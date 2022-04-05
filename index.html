@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="form-container">
+      <div class="logo-container">
+        <div class="logo">
+          <img src="images/odin-lined.png" alt="logo" />
+          <h1>Odin</h1>
+        </div>
+      </div>
+      <div class="form-control-container">
+        <form action="#" method="get">
+          <div class="form-inputs-container">
+            <ul>
+              <li>
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required />
+                <span></span>
+              </li>
+              <li>
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" />
+              </li>
+              <li>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+                <span></span>
+              </li>
+              <li>
+                <label for="tel">Phone Number:</label>
+                <input type="tel" id="tel" name="tel" />
+              </li>
+              <li>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required />
+                <span></span>
+              </li>
+              <li>
+                <label for="password-confirmed">Confirm Password:</label>
+                <input type="password" id="password-confirmed" name="password-confirmed" required />
+                <span></span>
+              </li>
+            </ul>
+          </div>
+          <div class="button-container">
+            <button type="submit">Create Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
