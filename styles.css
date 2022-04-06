@@ -23,19 +23,14 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
-body {
-  height: 100vh;
-}
-
 /* form cointainer includes both - image container and form with its control */
 
 #form-container {
-  height: 100%;
+  min-height: 1000px;
   padding-bottom: 40px;
   width: min(100vw, 1400px);
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   position: relative;
 }
 
@@ -50,16 +45,12 @@ body {
 }
 
 .form-text {
-  font-size: clamp(1rem, 1.5rem);
+  font-size: 1.5rem;
   padding: 35px;
   font-weight: 600;
 }
 
 /* Image and logo container */
-
-/* .logo-container {
-  height: var(--logo-container-height);
-} */
 
 .logo {
   display: flex;
@@ -86,7 +77,6 @@ body {
 /* form control container */
 
 .form-control-container {
-  padding-top: 50px;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -102,6 +92,7 @@ body {
 
 .form-inputs-container {
   border: none;
+  margin-top: 50px;
 }
 
 .lets-do-this {
@@ -218,9 +209,8 @@ ul > li > label > span {
 @media screen and (min-width: 900px) {
   #form-container {
     flex-direction: row;
-    margin: 0 auto;
-    position: relative;
     height: 100vh;
+    margin: 0 auto;
     padding-bottom: 0;
   }
 
@@ -228,48 +218,9 @@ ul > li > label > span {
     align-items: flex-start;
   }
 
-  #form-container::after {
-    bottom: 4px;
-    left: 6px;
-  }
-
   .logo-container {
+    flex: 1;
     position: relative;
-    height: 100%;
-    flex: 1;
-  }
-
-  .logo {
-    margin-top: 35%;
-    justify-content: center;
-    opacity: 0.3;
-  }
-
-  .form-control-container {
-    flex: 1;
-    background-color: var(--color-one);
-    height: 100%;
-  }
-
-  .lets-do-this {
-    width: 290px;
-  }
-
-  .form-inputs-container {
-    background-color: #f8f8f2;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 20px;
-  }
-
-  .form-inputs-container > ul {
-    display: flex;
-    justify-content: row;
-    flex-wrap: wrap;
-    width: auto;
   }
 
   .logo-container::after {
@@ -284,4 +235,67 @@ ul > li > label > span {
     position: absolute;
     z-index: -1;
   }
+
+  .logo {
+    margin-top: 35%;
+    justify-content: center;
+    opacity: 0.3;
+  }
+
+  .form-control-container {
+    flex: 1;
+    background-color: var(--color-one);
+  }
+
+  .lets-do-this {
+    width: 290px;
+  }
+
+  .form-inputs-container {
+    background-color: #f8f8f2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0px 5px 15px var(--color-two);
+  }
+
+  .form-inputs-container > ul {
+    display: flex;
+    justify-content: row;
+    flex-wrap: wrap;
+  }
 }
+
+/* @media screen and (min-width: 900px) {
+  #form-container {
+    flex-direction: row;
+    padding-bottom: 0;
+    margin: 0 auto;
+    height: 100vh;
+  }
+
+  .logo-container {
+    flex: 1;
+    position: relative;
+  }
+
+  .logo-container::after {
+    content: "";
+
+    background-image: url("images/martino-pietropoli-5jz3T5LwuPA-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .form-control-container {
+    flex: 1;
+  }
+} */
