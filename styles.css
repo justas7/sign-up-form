@@ -10,7 +10,10 @@
 
 @font-face {
   font-family: "Norse Bold";
-  src: url("/fonts/norse-bold-webfont.woff") format("woff");
+  src: url("/fonts/norse-bold-webfont.woff") format("woff"),
+    url("/fonts/norse-bold-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 *,
@@ -34,14 +37,14 @@
   position: relative;
 }
 
-#form-container::after {
+.logo-container::before {
   content: "Photo by Martino Pietropoli on Unsplash";
   font-size: 0.6rem;
   font-weight: 600;
   position: absolute;
   color: var(--color-one);
   bottom: 4px;
-  right: 6px;
+  left: 6px;
 }
 
 .form-text {
@@ -267,35 +270,3 @@ ul > li > label > span {
     flex-wrap: wrap;
   }
 }
-
-/* @media screen and (min-width: 900px) {
-  #form-container {
-    flex-direction: row;
-    padding-bottom: 0;
-    margin: 0 auto;
-    height: 100vh;
-  }
-
-  .logo-container {
-    flex: 1;
-    position: relative;
-  }
-
-  .logo-container::after {
-    content: "";
-
-    background-image: url("images/martino-pietropoli-5jz3T5LwuPA-unsplash.jpg");
-    background-size: cover;
-    background-position: center;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-  }
-
-  .form-control-container {
-    flex: 1;
-  }
-} */
