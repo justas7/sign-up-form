@@ -18,39 +18,63 @@
       <div class="form-control-container">
         <form action="#" method="get">
           <div class="form-inputs-container">
+            <h2 class="lets-do-this">Let's do this!</h2>
             <ul>
               <li>
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required />
-                <span></span>
+                <label for="first-name">First Name:<span>*</span></label>
+                <input
+                  placeholder=" "
+                  type="text"
+                  id="first-name"
+                  name="first-name"
+                  pattern="[A-Za-z]+"
+                  required
+                />
               </li>
               <li>
                 <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" />
+                <input
+                  placeholder=" "
+                  type="text"
+                  id="last-name"
+                  name="last-name"
+                  pattern="[A-Za-z]+"
+                />
               </li>
               <li>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required />
-                <span></span>
+                <label for="email">Email:<span>*</span></label>
+                <input placeholder=" " type="email" id="email" name="email" required />
               </li>
               <li>
                 <label for="tel">Phone Number:</label>
-                <input type="tel" id="tel" name="tel" />
+                <input placeholder=" " type="tel" id="tel" name="tel" />
               </li>
               <li>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required />
-                <span></span>
+                <label for="password">Password:<span>*</span></label>
+                <input
+                  placeholder=" "
+                  type="password"
+                  id="password"
+                  name="password"
+                  minlength="8"
+                  maxlength="32"
+                  required
+                />
               </li>
               <li>
-                <label for="password-confirmed">Confirm Password:</label>
-                <input type="password" id="password-confirmed" name="password-confirmed" required />
-                <span></span>
+                <label for="password-confirmed">Confirm Password:<span>*</span></label>
+                <input
+                  placeholder=" "
+                  type="password"
+                  id="password-confirmed"
+                  name="password-confirmed"
+                  minlength="8"
+                  maxlength="32"
+                  required
+                />
               </li>
             </ul>
-          </div>
-          <div class="button-container">
-            <button type="submit">Create Account</button>
+            <button class="button" type="submit">Create Account</button>
           </div>
         </form>
       </div>

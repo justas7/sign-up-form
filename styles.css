@@ -1,7 +1,9 @@
 :root {
   --color-one: #f1f3e8;
   --color-two: #736f36;
-  --color-three: #d9c49c;
+  --color-three: #0109d7;
+  --color-valid: green;
+  --color-invalid: red;
 
   --logo-container-height: 100px;
 }
@@ -18,15 +20,42 @@
   padding: 0;
   margin: 0;
   font-size: 16px;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
+/* form cointainer includes both - image container and form with its control */
+
 #form-container {
-  height: 100vh;
+  height: min(100vh, 1400px);
   width: min(100vw, 1400px);
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  background-color: var(--color-two);
+  position: relative;
+}
+
+#form-container::before {
+  content: "";
+  background-image: url("images/martino-pietropoli-5jz3T5LwuPA-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+#form-container::after {
+  content: "Photo by Martino Pietropoli on Unsplash";
+  font-size: 0.6rem;
+  font-weight: 600;
+  position: absolute;
+  color: rgb(17, 16, 16);
+  bottom: 4px;
+  right: 6px;
 }
 
 /* Image and logo container */
@@ -40,11 +69,13 @@
   justify-content: start;
   text-align: center;
   margin-top: 15px;
-  padding-left: 20px;
+  padding: 5px 0 5px 20px;
+  background-color: black;
+  opacity: 0.8;
 }
 
 .logo > h1 {
-  font-family: "Norse Bold";
+  font-family: "Norse Bold", "Times New Roman", Times, serif;
   font-size: calc(3rem + 5vw);
   padding-top: 15px;
   color: var(--color-one);
@@ -58,9 +89,25 @@
 
 .form-control-container {
   height: calc(100% - var(--logo-container-height));
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.lets-do-this {
+  padding-left: 20px;
+  font-size: calc(1rem + 1vw);
+  margin-bottom: 35px;
+  position: relative;
+}
+
+.lets-do-this::after {
+  content: "* Required field";
+  position: absolute;
+  font-size: calc(0.7rem + 0.1vw);
+  top: calc(25px + 1vw);
+  left: 20px;
 }
 
 ul {
@@ -71,18 +118,56 @@ ul > li {
   padding: 10px 20px;
 }
 
-ul > li > label {
-  display: block;
-}
 ul > li > input {
+  width: 250px;
+  display: block;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-one);
+  opacity: 0.7;
+  outline: 1px solid var(--color-two);
+}
+
+ul > li > input:focus {
+  outline: 3px solid var(--color-three);
+}
+
+/* doesnt show invalid while user still focusig on input and empty placeholder not removed */
+
+ul > li > input:not(:focus):not(:placeholder-shown):invalid {
+  outline: 2px solid var(--color-invalid);
+}
+
+ul > li > input:not(:focus):not(:placeholder-shown):valid {
+  outline: 2px solid var(--color-valid);
+}
+
+ul > li > label {
+  font-weight: 700;
+}
+
+ul > li > label > span {
+  position: relative;
+  bottom: 4px;
+}
+
+.button {
+  background-color: var(--color-one);
+  padding: 5px;
+  outline: 2px solid var(--color-two);
+  border: none;
+  border-radius: 4px;
+  opacity: 0.9;
+  font-weight: 600;
+  margin: 10px 20px;
   width: 250px;
 }
 
-ul > li > input:required {
-  position: relative;
+.button:hover {
+  background-color: #e4e7d9;
 }
 
-ul > li > input:required + span::after {
-  content: "*";
-  position: absolute;
+.button:active {
+  transform: translate(1px, -1px);
 }
