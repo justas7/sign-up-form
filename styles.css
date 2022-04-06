@@ -1,11 +1,11 @@
 :root {
-  --color-one: #f1f3e8;
-  --color-two: #736f36;
-  --color-three: #0109d7;
+  --color-one: #f1f3e8; /*main background and also logo header color */
+  --color-two: #736f36; /* main text color */
+  --color-three: #0109d7; /* on input focus */
   --color-valid: green;
   --color-invalid: red;
 
-  --logo-container-height: 100px;
+  --logo-container-height: 200px;
 }
 
 @font-face {
@@ -23,10 +23,15 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
+body {
+  height: 100vh;
+}
+
 /* form cointainer includes both - image container and form with its control */
 
 #form-container {
-  height: min(100vh, 1400px);
+  height: 100%;
+  padding-bottom: 40px;
   width: min(100vw, 1400px);
   display: flex;
   flex-direction: column;
@@ -34,44 +39,37 @@
   position: relative;
 }
 
-#form-container::before {
-  content: "";
-  background-image: url("images/martino-pietropoli-5jz3T5LwuPA-unsplash.jpg");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-}
-
 #form-container::after {
   content: "Photo by Martino Pietropoli on Unsplash";
   font-size: 0.6rem;
   font-weight: 600;
   position: absolute;
-  color: rgb(17, 16, 16);
+  color: var(--color-one);
   bottom: 4px;
   right: 6px;
 }
 
+.form-text {
+  font-size: clamp(1rem, 1.5rem);
+  padding: 35px;
+  font-weight: 600;
+}
+
 /* Image and logo container */
 
-.logo-container {
-  height: calc(var(--logo-container-height) + 5vw);
-}
+/* .logo-container {
+  height: var(--logo-container-height);
+} */
 
 .logo {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   text-align: center;
   margin-top: 15px;
   padding: 5px 0 5px 20px;
-  background-color: black;
-  opacity: 0.8;
+  position: relative;
+  background-color: var(--color-two);
+  opacity: 0.9;
 }
 
 .logo > h1 {
@@ -88,11 +86,22 @@
 /* form control container */
 
 .form-control-container {
-  height: calc(100% - var(--logo-container-height));
+  padding-top: 50px;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.form-control-container > form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-inputs-container {
+  border: none;
 }
 
 .lets-do-this {
@@ -133,7 +142,7 @@ ul > li > input:focus {
   outline: 3px solid var(--color-three);
 }
 
-/* doesnt show invalid while user still focusig on input and empty placeholder not removed */
+/* doesnt show invalid input while user still focusig on input and empty placeholder not removed */
 
 ul > li > input:not(:focus):not(:placeholder-shown):invalid {
   outline: 2px solid var(--color-invalid);
@@ -144,7 +153,7 @@ ul > li > input:not(:focus):not(:placeholder-shown):valid {
 }
 
 ul > li > label {
-  font-weight: 700;
+  font-weight: 900;
 }
 
 ul > li > label > span {
@@ -155,12 +164,12 @@ ul > li > label > span {
 .button {
   background-color: var(--color-one);
   padding: 5px;
-  outline: 2px solid var(--color-two);
+  outline: 1px solid var(--color-two);
   border: none;
   border-radius: 4px;
   opacity: 0.9;
   font-weight: 600;
-  margin: 10px 20px;
+  margin: 20px 40px;
   width: 250px;
 }
 
@@ -170,4 +179,109 @@ ul > li > label > span {
 
 .button:active {
   transform: translate(1px, -1px);
+}
+
+.have-account {
+  font-weight: 600;
+  margin: 40px;
+  margin-top: 0;
+}
+
+.have-account > a {
+  text-decoration: none;
+  color: var(--color-two);
+  font-weight: 900;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 900px) {
+  #form-container::before {
+    content: "";
+    background-image: url("images/martino-pietropoli-5jz3T5LwuPA-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .form-text {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #form-container {
+    flex-direction: row;
+    margin: 0 auto;
+    position: relative;
+    height: 100vh;
+    padding-bottom: 0;
+  }
+
+  .form-control-container > form {
+    align-items: flex-start;
+  }
+
+  #form-container::after {
+    bottom: 4px;
+    left: 6px;
+  }
+
+  .logo-container {
+    position: relative;
+    height: 100%;
+    flex: 1;
+  }
+
+  .logo {
+    margin-top: 35%;
+    justify-content: center;
+    opacity: 0.3;
+  }
+
+  .form-control-container {
+    flex: 1;
+    background-color: var(--color-one);
+    height: 100%;
+  }
+
+  .lets-do-this {
+    width: 290px;
+  }
+
+  .form-inputs-container {
+    background-color: #f8f8f2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 20px;
+  }
+
+  .form-inputs-container > ul {
+    display: flex;
+    justify-content: row;
+    flex-wrap: wrap;
+    width: auto;
+  }
+
+  .logo-container::after {
+    content: "";
+    background-image: url("images/martino-pietropoli-5jz3T5LwuPA-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
 }
